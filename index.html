@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Jadoo - Travel Agency</title>
+  </head>
+  <body>
+    <div class="decore-bg"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg py-4">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="./imeges/Logo.png" alt="Jadoo Logo" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" data-key="destinations"
+                >Destinations</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-key="hotels">Hotels</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-key="flights">Flights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-key="bookings">Bookings</a>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3">
+            <a href="#" class="btn" data-key="login">Login</a>
+            <a href="#" class="btn" data-key="signup">Sign Up</a>
+            <button class="btn theme-btn" id="themeBtn" onclick="toggleTheme()">
+              🌙
+            </button>
+            <div class="dropdown">
+              <button
+                class="btn dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                id="langBtn"
+              >
+                <span>En</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="switchLanguage('en')"
+                    >English</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="switchLanguage('ar')"
+                    >العربية</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6 hero-content">
+          <h5 data-key="heroSubtitle">Best Destinations around the world</h5>
+          <h1 data-key="heroTitle">
+            Travel,<span class="enjoy">enjoy</span><br />
+            and live a new<br />
+            and full life
+          </h1>
+          <p data-key="heroDescription">
+            Built Wicket longer admire do barton vanity itself do in it.
+            Preferred to sportsmen it engrossed listening. Park gate sell they
+            west hard for the.
+          </p>
+          <div class="d-flex align-items-center gap-4">
+            <button class="btn find" data-key="findMore">Find out more</button>
+            <button class="btn play d-flex align-items-center gap-3">
+              <img src="./imeges/Play button.png" alt="" />
+              <span data-key="playDemo">Play Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-image text-end">
+          <img
+            src="./imeges/Traveller 1.png"
+            alt="Hero Image"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Section -->
+    <section class="py-5">
+      <div class="container text-center">
+        <p class="main-title" data-key="category">CATEGORY</p>
+        <h1 class="main-title-text mb-5" data-key="services">
+          We Offer Best Services
+        </h1>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="service text-center">
+              <img src="./imeges/Group 50.png" alt="Weather" class="mb-3" />
+              <h5 data-key="weather">Calculated Weather</h5>
+              <p data-key="weatherDesc">
+                Built Wicket longer admire do barton vanity itself do in it.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="service text-center">
+              <img
+                src="./imeges/Group 51.png"
+                alt="Flights"
+                class="mb-3"
+                style="width: 100px"
+              />
+              <h5 data-key="bestFlights">Best Flights</h5>
+              <p data-key="flightsDesc">
+                Engrossed listening. Park gate sell they west hard for the.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="service text-center">
+              <img src="./imeges/Group 48.png" alt="Events" class="mb-3" />
+              <h5 data-key="localEvents">Local Events</h5>
+              <p data-key="eventsDesc">
+                Barton vanity itself do in it. Preferd to men it engrossed
+                listening.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="service text-center">
+              <img
+                src="./imeges/Group 49.png"
+                alt="Customization"
+                class="mb-3"
+              />
+              <h5 data-key="customization">Customization</h5>
+              <p data-key="customDesc">
+                We deliver outsourced aviation services for military customers
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Destinations -->
+    <section class="py-5">
+      <div class="container text-center">
+        <p class="main-title" data-key="topSelling">Top Selling</p>
+        <h1 class="main-title-text mb-5" data-key="topDestinations">
+          Top Destinations
+        </h1>
+        <div class="row g-4 justify-content-center">
+          <div class="col-xl-4 col-lg-6 col-md-8">
+            <div class="card">
+              <img src="./imeges/cate1.png" alt="Rome, Italy" />
+              <div class="card-content">
+                <div
+                  class="details d-flex justify-content-between align-items-start mb-3"
+                >
+                  <h5 data-key="rome">Rome, Italy</h5>
+                  <span>$5,42k</span>
+                </div>
+                <p class="d-flex align-items-center gap-3">
+                  <img src="./imeges/navigation 1.png" alt="" /> 10
+                  <span data-key="daysTrip">Days Trip</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-8">
+            <div class="card">
+              <img src="./imeges/cate2.jpg" alt="London, UK" />
+              <div class="card-content">
+                <div
+                  class="details d-flex justify-content-between align-items-start mb-3"
+                >
+                  <h5 data-key="london">London, UK</h5>
+                  <span>$4.2k</span>
+                </div>
+                <p class="d-flex align-items-center gap-3">
+                  <img src="./imeges/navigation 1.png" alt="" /> 12
+                  <span data-key="daysTrip">Days Trip</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-8">
+            <div class="card">
+              <img src="./imeges/cate3.png" alt="Full Europe" />
+              <div class="card-content">
+                <div
+                  class="details d-flex justify-content-between align-items-start mb-3"
+                >
+                  <h5 data-key="europe">Full Europe</h5>
+                  <span>$15k</span>
+                </div>
+                <p class="d-flex align-items-center gap-3">
+                  <img src="./imeges/navigation 1.png" alt="" /> 28
+                  <span data-key="daysTrip">Days Trip</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Easy Fast Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="content-title">
+              <p data-key="easyFast">Easy and Fast</p>
+              <h1 data-key="bookTrip">Book your next trip in 3 easy steps</h1>
+            </div>
+            <div class="row g-4 mt-4">
+              <div class="col-12">
+                <div class="d-flex align-items-center">
+                  <img src="./imeges/Group 7.png" alt="" class="me-3" />
+                  <div class="just-text">
+                    <h3 data-key="chooseDestination">Choose Destination</h3>
+                    <p data-key="chooseDesc">
+                      Lorem ipsum dolor sit amet, consectetur <br />
+                      adipiscing elit. Urna, tortor tempus.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="d-flex align-items-center">
+                  <img src="./imeges/Group 12.png" alt="" class="me-3" />
+                  <div class="just-text">
+                    <h3 data-key="makePayment">Make Payment</h3>
+                    <p data-key="paymentDesc">
+                      Lorem ipsum dolor sit amet, consectetur <br />
+                      adipiscing elit. Urna, tortor tempus.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="d-flex align-items-center">
+                  <img src="./imeges/Group 11.png" alt="" class="me-3" />
+                  <div class="just-text">
+                    <h3 data-key="reachAirport">
+                      Reach Airport on Selected Date
+                    </h3>
+                    <p data-key="airportDesc">
+                      Lorem ipsum dolor sit amet, consectetur <br />
+                      adipiscing elit. Urna, tortor tempus.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="./imeges/Image (1).png" alt="" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="content-title">
+              <p data-key="testimonials">Testimonials</p>
+              <h1 data-key="whatPeopleSay">What people say about Us.</h1>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="testimonial-wrapper">
+              <div class="swiper testimonial-swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="testimonial-card">
+                      <div class="testimonial-content">
+                        <p>
+                          "On the Windows talking painted pasture yet its
+                          express parties use. Sure last upon he same as knew
+                          next. Of believed or diverted no."
+                        </p>
+                        <div class="testimonial-author">
+                          <img
+                            src="./imeges/person.png"
+                            alt="Mike Taylor"
+                            class="author-image"
+                          />
+                          <div class="author-info">
+                            <h4>Mike Taylor</h4>
+                            <p>Lahore, Pakistan</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="testimonial-card">
+                      <div class="testimonial-content">
+                        <p>
+                          "Amazing experience! The service was exceptional and
+                          the trip was perfectly organized. Highly recommend to
+                          everyone looking for quality travel."
+                        </p>
+                        <div class="testimonial-author">
+                          <img
+                            src="./imeges/person.png"
+                            alt="Sarah Johnson"
+                            class="author-image"
+                          />
+                          <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>New York, USA</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="testimonial-card">
+                      <div class="testimonial-content">
+                        <p>
+                          "Professional team and excellent customer support.
+                          They made our vacation unforgettable with their
+                          attention to detail and care."
+                        </p>
+                        <div class="testimonial-author">
+                          <img
+                            src="./imeges/person.png"
+                            alt="Ahmed Ali"
+                            class="author-image"
+                          />
+                          <div class="author-info">
+                            <h4>Ahmed Ali</h4>
+                            <p>Dubai, UAE</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center align-items-center g-4">
+          <div class="col-6 col-md-2 text-center">
+            <img src="./imeges/image 27.png" alt="Brand" class="img-fluid" />
+          </div>
+          <div class="col-6 col-md-2 text-center">
+            <img src="./imeges/image 28.png" alt="Brand" class="img-fluid" />
+          </div>
+          <div class="col-6 col-md-2 text-center">
+            <img src="./imeges/image 29.png" alt="Brand" class="img-fluid" />
+          </div>
+          <div class="col-6 col-md-2 text-center">
+            <img src="./imeges/image 30.png" alt="Brand" class="img-fluid" />
+          </div>
+          <div class="col-6 col-md-2 text-center">
+            <img src="./imeges/image 31.png" alt="Brand" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribe -->
+    <section class="py-5 Subscribe">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="subs p-5 text-center">
+              <h1 class="mb-4" data-key="subscribeTitle">
+                Subscribe to get information, latest news and other interesting
+                offers about Jadoo
+              </h1>
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <div class="d-flex gap-3 justify-content-center">
+                    <input
+                      type="email"
+                      data-placeholder="emailPlaceholder"
+                      placeholder="Your email"
+                      class="form-control flex-grow-1"
+                      style="max-width: 421px"
+                    />
+                    <button class="btn subsc">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <h4 class="fw-bold mb-3">Jadoo.</h4>
+            <p class="text-muted" data-key="footerDesc">
+              Book your trip in minute, get full<br />
+              Control for much longer.
+            </p>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h6 class="fw-semibold mb-3" data-key="company">Company</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="footer-link" data-key="about">About</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link" data-key="careers">Careers</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link" data-key="mobile">Mobile</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h6 class="fw-semibold mb-3" data-key="contact">Contact</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="footer-link" data-key="help">Help/FAQ</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link" data-key="press">Press</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link" data-key="affiliates"
+                  >Affiliates</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h6 class="fw-semibold mb-3" data-key="more">More</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="footer-link" data-key="airlineFees"
+                  >Airlinefees</a
+                >
+              </li>
+              <li>
+                <a href="#" class="footer-link" data-key="airline">Airline</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link" data-key="lowFare"
+                  >Low fare tips</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-social-section">
+              <div class="social-links-container">
+                <a href="#" class="social-link">
+                  <img src="./imeges/Social.png" alt="Social" />
+                </a>
+                <a href="#" class="social-link">
+                  <img src="./imeges/Social (1).png" alt="Social" />
+                </a>
+                <a href="#" class="social-link">
+                  <img src="./imeges/Social (2).png" alt="Social" />
+                </a>
+              </div>
+              <h6 class="app-title" data-key="discoverApp">Discover our app</h6>
+              <div class="app-buttons">
+                <a href="#" class="app-btn">
+                  <img src="./imeges/Google Play.png" alt="Google Play" />
+                </a>
+                <a href="#" class="app-btn">
+                  <img src="./imeges/Play Store.png" alt="App Store" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="text-center pt-4 mt-4 border-top text-muted"
+          data-key="allRights"
+        >
+          All rights reserved @jadoo.co
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".testimonial-swiper", {
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          dynamicBullets: true,
+        },
+
+        effect: "slide",
+        speed: 800,
+        spaceBetween: 30,
+        grabCursor: true,
+      });
+    </script>
+    <script src="./lang.js"></script>
+  </body>
+</html>
