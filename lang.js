@@ -160,16 +160,55 @@ let isDarkMode = false;
 
 function toggleTheme() {
   isDarkMode = !isDarkMode;
-  document.body.classList.toggle("dark-mode", isDarkMode);
-
-  // Update theme button
-  const themeBtn = document.querySelector("#themeBtn");
-  if (themeBtn) {
-    themeBtn.innerHTML = isDarkMode ? "☀️" : "🌙";
+  
+  // Add transition class for smooth animation
+  document.body.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+  
+  // Toggle dark mode with animation
+  if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+    // Add ripple effect
+    createThemeRipple();
+  } else {
+    document.body.classList.remove('dark-mode');
+    createThemeRipple();
   }
 
   // Save preference
   localStorage.setItem("darkMode", isDarkMode);
+  
+  // Remove transition after animation
+  setTimeout(() => {
+    document.body.style.transition = '';
+  }, 300);
+}
+
+function createThemeRipple() {
+  const themeBtn = document.querySelector('#themeBtn');
+  const ripple = document.createElement('div');
+  ripple.className = 'theme-ripple';
+  
+  const rect = themeBtn.getBoundingClientRect();
+  const size = Math.max(window.innerWidth, window.innerHeight) * 2;
+  
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (rect.left + rect.width / 2 - size / 2) + 'px';
+  ripple.style.top = (rect.top + rect.height / 2 - size / 2) + 'px';
+  
+  document.body.appendChild(ripple);
+  
+  // Trigger animation
+  requestAnimationFrame(() => {
+    ripple.style.transform = 'scale(1)';
+    ripple.style.opacity = '0';
+  });
+  
+  // Remove ripple after animation
+  setTimeout(() => {
+    if (ripple.parentNode) {
+      ripple.parentNode.removeChild(ripple);
+    }
+  }, 600);
 }
 
 function switchLanguage(lang) {
@@ -207,14 +246,33 @@ function switchLanguage(lang) {
 
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", function () {
-  // Load saved theme
+  // Load saved theme with smooth transition
   const savedTheme = localStorage.getItem("darkMode");
   if (savedTheme === "true") {
     isDarkMode = true;
     document.body.classList.add("dark-mode");
-    const themeBtn = document.querySelector("#themeBtn");
-    if (themeBtn) themeBtn.innerHTML = "☀️";
   }
+  
+  // Add system theme detection
+  if (!localStorage.getItem("darkMode")) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      isDarkMode = true;
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("darkMode", "true");
+    }
+  }
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem("darkMode")) {
+      isDarkMode = e.matches;
+      document.body.classList.toggle("dark-mode", isDarkMode);
+    }
+  });
 
   switchLanguage("en");
+  
+  // Add smooth scroll behavior
+  document.documentElement.style.scrollBehavior = 'smooth';
 });
