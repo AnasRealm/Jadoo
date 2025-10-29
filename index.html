@@ -29,12 +29,17 @@
         </a>
 
         <button
-          class="navbar-toggler"
+          class="navbar-toggler custom-burger"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -97,7 +102,7 @@
     <!-- Hero Section -->
     <section class="container py-5">
       <div class="row align-items-center">
-        <div class="col-lg-6 hero-content">
+        <div class="col-lg-6 order-lg-1 order-2 hero-content">
           <h5 data-key="heroSubtitle">Best Destinations around the world</h5>
           <h1 data-key="heroTitle">
             Travel,<span class="enjoy">enjoy</span><br />
@@ -117,7 +122,7 @@
             </button>
           </div>
         </div>
-        <div class="col-lg-6 hero-image text-end">
+        <div class="col-lg-6 order-lg-2 order-1 hero-image text-center text-lg-end mb-4 mb-lg-0">
           <img
             src="./imeges/Traveller 1.png"
             alt="Hero Image"
@@ -559,6 +564,18 @@
         speed: 800,
         spaceBetween: 30,
         grabCursor: true,
+      });
+
+      // Burger menu animation
+      const burgerBtn = document.querySelector('.custom-burger');
+      const navCollapse = document.querySelector('#navbarNav');
+      
+      navCollapse.addEventListener('show.bs.collapse', () => {
+        burgerBtn.setAttribute('aria-expanded', 'true');
+      });
+      
+      navCollapse.addEventListener('hide.bs.collapse', () => {
+        burgerBtn.setAttribute('aria-expanded', 'false');
       });
     </script>
     <script src="./lang.js"></script>
